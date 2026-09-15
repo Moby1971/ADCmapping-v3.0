@@ -1,1 +1,1 @@
-ADCmapp_version=2.5.0
+ADCmapp_version=3.0.0
