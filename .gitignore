@@ -28,7 +28,9 @@ functions/export/niftii/nii_tool.m
 +adcmapp/+reg/registerImages.m
 +adcmapp/+util/elastixBundle.m
 +adcmapp/+util/hex2rgb.m
++adcmapp/+util/maskElement.m
 +adcmapp/+util/naviaColorMap.m
++adcmapp/+util/pixelSize.m
 +adcmapp/+util/resourcePath.m
 +adcmapp/+util/rgb2hex.m
 +adcmapp/+util/robustDisplayMax.m
