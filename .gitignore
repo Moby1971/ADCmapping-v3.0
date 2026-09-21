@@ -12,12 +12,17 @@ functions/export/niftii/nii_tool.m
 
 +adcmapp/+fit/applyThreshold.m
 +adcmapp/+fit/fitSlice.m
++adcmapp/+fit/otsuThreshold.m
 +adcmapp/+fit/referenceIndex.m
++adcmapp/+io/bidsGradientTable.m
++adcmapp/+io/bidsWriteNifti.m
 +adcmapp/+io/defaultSettings.m
++adcmapp/+io/exportBidsFcn.m
 +adcmapp/+io/exportDicomADC.m
 +adcmapp/+io/exportFolders.m
 +adcmapp/+io/exportGifADC.m
 +adcmapp/+io/exportNifti.m
++adcmapp/+io/loadTarget.m
 +adcmapp/+io/makeLogFile.m
 +adcmapp/+io/numberedFolder.m
 +adcmapp/+io/pruneLogFiles.m
@@ -25,12 +30,56 @@ functions/export/niftii/nii_tool.m
 +adcmapp/+io/readSettingsFile.m
 +adcmapp/+io/retiredSettings.m
 +adcmapp/+io/userFolder.m
++adcmapp/+mrd/acquisitionTime.m
++adcmapp/+mrd/circTukey2D.m
++adcmapp/+mrd/correctGradientTable.m
++adcmapp/+mrd/dicomOrientation.m
++adcmapp/+mrd/dicomSeriesNumber.m
++adcmapp/+mrd/diffusionRefusal.m
++adcmapp/+mrd/diffusionScheme.m
++adcmapp/+mrd/epiCentreEcho.m
++adcmapp/+mrd/epiDriftCorr.m
++adcmapp/+mrd/epiMaskScan.m
++adcmapp/+mrd/epiPairField.m
++adcmapp/+mrd/epiPartialFourier.m
++adcmapp/+mrd/epiPartnerScan.m
++adcmapp/+mrd/epiRampRegrid.m
++adcmapp/+mrd/epiReferenceCorr.m
++adcmapp/+mrd/epiVolumeShift.m
++adcmapp/+mrd/expectedVolumes.m
++adcmapp/+mrd/exportDicomDCM.m
++adcmapp/+mrd/exportDicomMRD.m
++adcmapp/+mrd/exportDiffusionScript.m
++adcmapp/+mrd/exportNiftiFcn.m
++adcmapp/+mrd/exportScan.m
++adcmapp/+mrd/fft2Dmri.m
++adcmapp/+mrd/homodyne.m
++adcmapp/+mrd/ifft2Dmri.m
++adcmapp/+mrd/imagePosition.m
++adcmapp/+mrd/importMRD.m
++adcmapp/+mrd/kspaceRefusal.m
++adcmapp/+mrd/loadScan.m
++adcmapp/+mrd/matrixInterpolate.m
++adcmapp/+mrd/mppcaDenoise.m
++adcmapp/+mrd/mppcaWindow.m
++adcmapp/+mrd/MrdReporter.m
++adcmapp/+mrd/patientPosition.m
++adcmapp/+mrd/profileShift.m
++adcmapp/+mrd/readProtocol.m
++adcmapp/+mrd/reconstructionParams.m
++adcmapp/+mrd/reconstructScan.m
++adcmapp/+mrd/scannerDicom.m
++adcmapp/+mrd/sliceSpacing.m
++adcmapp/+mrd/smoothPhase.m
++adcmapp/+mrd/sqlGeometry.m
++adcmapp/+mrd/twoDimLinearCorr_entropy.m
 +adcmapp/+reg/registerImages.m
 +adcmapp/+util/elastixBundle.m
 +adcmapp/+util/hex2rgb.m
 +adcmapp/+util/maskElement.m
 +adcmapp/+util/naviaColorMap.m
 +adcmapp/+util/pixelSize.m
++adcmapp/+util/quadrupedWorldMap.m
 +adcmapp/+util/resourcePath.m
 +adcmapp/+util/rgb2hex.m
 +adcmapp/+util/robustDisplayMax.m
@@ -40,11 +89,14 @@ functions/export/niftii/nii_tool.m
 +adcmapp/Reporter.m
 +adcmapp/defaultDisplayParams.m
 +adcmapp/defaultFitParams.m
++adcmapp/defaultMrdParams.m
 +adcmapp/defaultRegParams.m
 @adcData/adcData.m
+@adcEpiData/adcEpiData.m
 gui/adapters/AppReporter.m
 gui/adapters/gatherDisplayParams.m
 gui/adapters/gatherFitParams.m
+gui/adapters/gatherMrdParams.m
 gui/adapters/gatherRegParams.m
 
 # The elastix registration tools, P-coded on 2026-09-15 like the rest of the code. The .p
@@ -67,3 +119,7 @@ functions/registration/registration_tools/code/transformix.m
 functions/registration/registration_tools/code/updateTransformFileDirFields.m
 functions/registration/registration_tools/code/validateElastixParam.m
 functions/registration/registration_tools/code/writePointsFile.m
+
+# coilCombine (third party, MEX with its MATLAB fallback), taken over from P2ROUD with the EPI
+# reconstruction on 2026-09-17. The .p and the MEX files beside it ship; the .m stays local.
+functions/coilCombine/coilCombine.m
