@@ -39,6 +39,7 @@ functions/export/niftii/nii_tool.m
 +adcmapp/+mrd/diffusionScheme.m
 +adcmapp/+mrd/epiCentreEcho.m
 +adcmapp/+mrd/epiDriftCorr.m
++adcmapp/+mrd/epiLineOffset.m
 +adcmapp/+mrd/epiMaskScan.m
 +adcmapp/+mrd/epiPairField.m
 +adcmapp/+mrd/epiPartialFourier.m
