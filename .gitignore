@@ -22,6 +22,7 @@ functions/export/niftii/nii_tool.m
 +adcmapp/+io/exportFolders.m
 +adcmapp/+io/exportGifADC.m
 +adcmapp/+io/exportNifti.m
++adcmapp/+io/loadFileTarget.m
 +adcmapp/+io/loadTarget.m
 +adcmapp/+io/makeLogFile.m
 +adcmapp/+io/numberedFolder.m
@@ -53,6 +54,7 @@ functions/export/niftii/nii_tool.m
 +adcmapp/+mrd/exportDiffusionScript.m
 +adcmapp/+mrd/exportNiftiFcn.m
 +adcmapp/+mrd/exportScan.m
++adcmapp/+mrd/exportScanRest.m
 +adcmapp/+mrd/fft2Dmri.m
 +adcmapp/+mrd/homodyne.m
 +adcmapp/+mrd/ifft2Dmri.m
